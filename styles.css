@@ -1,0 +1,70 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	width: 80%;
+	padding: 30px;
+	margin: auto;
+}
+
+.grid {
+	margin: auto;
+	list-style-type: none;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 20px;
+	justify-items: center;
+}
+
+.card {
+	background-color: whitesmoke;
+	border: 1px solid #666;
+	box-shadow: 3px 3px 3px #666;
+	border-radius: 5px;
+	width: 100%;
+	
+	padding: 5px;
+	
+	text-transform: capitalize;
+}
+
+.userAvatar {
+	float: left;
+	border-radius: 50%;
+	margin: 20px;
+}
+
+.userName {
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+p {
+	margin-left: 40%;
+	font-family: sans-serif;
+	color: #333;
+}
+
+#modal-window {
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.modal-card {
+	background-color: whitesmoke;
+	border: 1px solid #666;
+	box-shadow: 3px 3px 3px #666;
+	border-radius: 5px;
+	width: 500px;
+	height: 300px;
+	list-style-type: none;
+	padding: 5px;
+	text-transform: capitalize;
+	margin: 10% auto;
+}
