@@ -21,41 +21,17 @@ function createListElement(users) {
 		userCard.className = "card";
 		userCard.innerHTML = `
 			<div class="basic-user-info">
-			<img class="userAvatar" src="${user.picture.large} ">
-			<p class="userName">${user.name.first} ${user.name.last}</p>
-			<p class="userEmail">${user.email}</p>
-			<p class="userCity">${user.location.city}</p>
+				<img class="userAvatar" src="${user.picture.large} ">
+				<p class="userName">${user.name.first} ${user.name.last}</p>
+				<p class="userEmail">${user.email}</p>
+				<p class="userCity">${user.location.city}</p>
 			</div>
-			<div class="additional-user-info">
-			<p class="userPhone">${user.phone}</p>
-			<p class="userAddress">${user.location.street},${user.location.postcode}</p>
-			<p class="userDOB">${user.dob.date.slice(0,10)}</p>
+			<div id="additional-user-info">
+				<p class="userPhone">${user.phone}</p>
+				<p class="userAddress">${user.location.street},${user.location.postcode}</p>
+				<p class="userDOB">${user.dob.date.slice(0,10)}</p>
 			</div>
 			`;
-		
-			// console.log(user.dob.date.slice(0,10));
-		
-		
-// NB: Alternative but less cleaner...
-			
-//		let userAvatar = document.createElement('img');
-//		let userName = document.createElement('p');
-//		let userEmail = document.createElement('p');
-//		let userCity = document.createElement('p');
-//		
-//		userName.innerHTML = `${user.name.first} ${user.name.last}`;
-//		userEmail.innerHTML = `${user.email}`;
-//		userCity.innerHTML = `${user.location.city}`;
-//		userAvatar.src = `${user.picture.large}`;
-//		
-//		userCard.className = 'card';
-//		userName.className = 'userName';
-//		userAvatar.className = 'userAvatar';
-//	
-//		userCard.appendChild(userAvatar);
-//		userCard.appendChild(userName);
-//		userCard.appendChild(userEmail);
-//		userCard.appendChild(userCity);
 		
 		ul.appendChild(userCard);
 		
@@ -63,14 +39,18 @@ function createListElement(users) {
 // Adding a click event to userCard
 		
 		userCard.addEventListener('click', () => {
-			console.log('You clicked a user card');
-			
 			const modalWindow = document.getElementById('modal-window');
-			modalWindow.style.display = 'block';
-//			userCard.className = 'modal-card';
+			modalWindow.style.display = 'flex';
+			
+			let clone = userCard.cloneNode(true);
+			clone.className = 'modal-card';
+			modalWindow.appendChild(clone);
 			
 			modalWindow.addEventListener('click', () => {
 				modalWindow.style.display = 'none';
+				userCard.className = 'card';
+				modalWindow.removeChild(clone);	
+				
 			});
 		});
 	

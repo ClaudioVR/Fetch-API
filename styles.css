@@ -70,7 +70,7 @@ hr {
 	font-size: .7em;
 }
 
-.additional-user-info {
+#additional-user-info {
 	display: none;
 }
 
@@ -82,6 +82,8 @@ hr {
 	top: 0;
 	left: 0;
 	display: none;
+	justify-content: center;
+	align-items: center;
 }
 
 .modal-card {
@@ -94,7 +96,11 @@ hr {
 	list-style-type: none;
 	padding: 5px;
 	text-transform: capitalize;
-	margin: 10% auto;
+	position: absolute;
+}
+
+.modal-card > div {
+	display: block;
 }
 
 /*Media query --------------------------------- */
