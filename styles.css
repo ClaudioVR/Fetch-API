@@ -1,19 +1,33 @@
 * {
 	box-sizing: border-box;
+	font-family: sans-serif;
+	color: #333;
 }
 
 body {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	margin: 20px auto;
+	text-align: center;	
+	text-transform: uppercase;
+	color: #333;
+}
+
+hr {
 	width: 80%;
-	padding: 30px;
-	margin: auto;
+	margin-bottom: 30px;
 }
 
 .grid {
-	margin: auto;
+	padding: 0;
+	width: 100%;
 	list-style-type: none;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 20px;
+	grid-template-columns: 1fr;
+	grid-gap: 1em;
 	justify-items: center;
 }
 
@@ -22,28 +36,42 @@ body {
 	border: 1px solid #666;
 	box-shadow: 3px 3px 3px #666;
 	border-radius: 5px;
-	width: 100%;
-	
+	width: 90%;
 	padding: 5px;
-	
 	text-transform: capitalize;
+	margin: auto;
+	transition: .3s;
+	cursor: pointer;
+}
+
+.card:hover {
+	box-shadow: 15px 10px 3px #666;
 }
 
 .userAvatar {
+	height: 80px;
+	width: 80px;
 	float: left;
 	border-radius: 50%;
-	margin: 20px;
+	margin: 5px 15px 5px 5px;
 }
 
 .userName {
-	font-size: 1.4em;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 1.1em;
 	font-weight: bold;
 }
 
-p {
-	margin-left: 40%;
-	font-family: sans-serif;
-	color: #333;
+.userEmail,
+.userCity {
+	margin-top: 0px;
+	margin-bottom: 5px;
+	font-size: .7em;
+}
+
+.additional-user-info {
+	display: none;
 }
 
 #modal-window {
@@ -67,4 +95,18 @@ p {
 	padding: 5px;
 	text-transform: capitalize;
 	margin: 10% auto;
+}
+
+/*Media query --------------------------------- */
+
+@media (min-width: 768px) {
+	.grid {
+		grid-template-columns: 50% 50%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
 }
