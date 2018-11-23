@@ -9,11 +9,26 @@ body {
 	padding: 0;
 }
 
+nav {
+	text-align: center;
+}
+
 h1 {
 	margin: 20px auto;
 	text-align: center;	
 	text-transform: uppercase;
 	color: #333;
+/*	display: inline-block; */
+}
+
+#search {
+	background-color: #eee;
+	height: 2em;
+	width: 60%;
+	box-shadow: none;
+	padding: 15px;
+	margin-bottom: 25px;
+	font-size: 1em;
 }
 
 hr {
@@ -132,6 +147,21 @@ hr {
 	.overlay-user-info {
 		margin-top: 50px;
 	}
+	nav {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+	h1 {
+		display: inline-block;
+		margin: 0;
+	}
+	#search {
+		width: 30%;
+		margin: 0;
+	}
 }
 
 @media (min-width: 1024px) {
@@ -140,5 +170,8 @@ hr {
 	}
 	.card {
 		width: 90%;
+	}
+	#search {
+		width: 25%;
 	}
 }

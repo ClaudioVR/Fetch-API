@@ -1,44 +1,43 @@
-			
-//Fetch API	------------------------------------------
+			//Fetch API	------------------------------------------
 
-const url = "https://randomuser.me/api/?results=12&nat=gb";  
-// https://randomuser.me/
-		
-	fetch(url)
-		.then((res) => res.json())
-		.then((data) => {	
-			createListElement(data.results);
-		})
+			const url = "https://randomuser.me/api/?results=12&nat=gb";
+			// https://randomuser.me/
+
+			fetch(url)
+				.then((res) => res.json())
+				.then((data) => {
+					createListElement(data.results);
+				})
 
 
-// Helpful functions ----------------------------------
+			// Helpful functions ----------------------------------
 
-function createListElement(users) {
-	const ul = document.getElementById('grid');
-	
-	users.forEach(user => {
-		let userCard = document.createElement('li');
-		userCard.className = "card";
-		userCard.innerHTML = `
+			function createListElement(users) {
+				const ul = document.getElementById('grid');
+
+				users.forEach(user => {
+					let userCard = document.createElement('li');
+					userCard.className = "card";
+					userCard.innerHTML = `
 			<div class="basic-user-info">
 				<img class="userAvatar" src="${user.picture.large} ">
-				<p class="userName">${user.name.first} ${user.name.last}</p>
+				<a class="userName">${user.name.first} ${user.name.last}</a>
 				<p class="userEmail">${user.email}</p>
 				<p class="userCity">${user.location.city}</p>
 			</div>
 			`;
-		
-		ul.appendChild(userCard);
-		
-		
-// Adding a click event to userCard
-		
-		userCard.addEventListener('click', () => {
-			const modalWindow = document.getElementById('modal-window');
-			modalWindow.style.display = 'flex';
-			
-			let clone = userCard.cloneNode(true);
-			clone.innerHTML = `
+
+					ul.appendChild(userCard);
+
+
+					// Adding a click event to userCard
+
+					userCard.addEventListener('click', () => {
+						const modalWindow = document.getElementById('modal-window');
+						modalWindow.style.display = 'flex';
+
+						let clone = userCard.cloneNode(true);
+						clone.innerHTML = `
 				<div class="overlay-user-info">
 					<img class="overlay overlayAvatar" src="${user.picture.large} ">
 					<h3 class="overlay overlayName">${user.name.first} ${user.name.last}</h3>
@@ -50,20 +49,37 @@ function createListElement(users) {
 					<p class="overlay overlayDOB">Birthday: ${user.dob.date.slice(0,10)}</p>
 				</div>
 				`;
-			clone.className = 'modal-card';
-			modalWindow.appendChild(clone);
-			
-			modalWindow.addEventListener('click', () => {
-				modalWindow.style.display = 'none';
-				userCard.className = 'card';
-				modalWindow.removeChild(clone);	
+						clone.className = 'modal-card';
+						modalWindow.appendChild(clone);
+
+						modalWindow.addEventListener('click', () => {
+							modalWindow.style.display = 'none';
+							userCard.className = 'card';
+							modalWindow.removeChild(clone);
+
+						});
+					});
+
+				});
+			} // createListElement function end
+
+			//Search input function ------------------------------- >
+
+			const inputSearchBar = document.getElementById('search');
+
+			inputSearchBar.addEventListener('onkeyup', () => {
 				
+				const filter = inputSearchBar.value.toLowerCase();
+				const li = document.getElementsByClassName('card');
+				const a = li.getElementsByTagNamee('a');
+
+				// Loop through all list items, and hide those who don't match the search query
+				for (i = 0; i < li.length; i++) {
+					if (a.innerHTML.toLowerCase().indexOf(filter) > -1) {
+						li[i].style.display = "";
+					} else {
+						li[i].style.display = "none";
+					}
+				}
 			});
-		});
-	
-	});
-} // createListElement function end
-
-
-
 
