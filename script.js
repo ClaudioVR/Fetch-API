@@ -26,11 +26,6 @@ function createListElement(users) {
 				<p class="userEmail">${user.email}</p>
 				<p class="userCity">${user.location.city}</p>
 			</div>
-			<div id="additional-user-info">
-				<p class="userPhone">${user.phone}</p>
-				<p class="userAddress">${user.location.street},${user.location.postcode}</p>
-				<p class="userDOB">${user.dob.date.slice(0,10)}</p>
-			</div>
 			`;
 		
 		ul.appendChild(userCard);
@@ -43,6 +38,18 @@ function createListElement(users) {
 			modalWindow.style.display = 'flex';
 			
 			let clone = userCard.cloneNode(true);
+			clone.innerHTML = `
+				<div class="overlay-user-info">
+					<img class="overlay overlayAvatar" src="${user.picture.large} ">
+					<h3 class="overlay overlayName">${user.name.first} ${user.name.last}</h3>
+					<p class="overlay overlayEmail">${user.email}</p>
+					<p class="overlay overlayCity">${user.location.city}</p>
+					<hr>
+					<p class="overlay overlayPhone">Tel: ${user.phone}</p>
+					<p class="overlay overlayAddress">${user.location.street}, ${user.location.postcode}</p>
+					<p class="overlay overlayDOB">Birthday: ${user.dob.date.slice(0,10)}</p>
+				</div>
+				`;
 			clone.className = 'modal-card';
 			modalWindow.appendChild(clone);
 			

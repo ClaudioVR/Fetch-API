@@ -70,6 +70,8 @@ hr {
 	font-size: .7em;
 }
 
+/*Overlay - Modal window ------------------------*/
+
 #additional-user-info {
 	display: none;
 }
@@ -91,8 +93,8 @@ hr {
 	border: 1px solid #666;
 	box-shadow: 3px 3px 3px #666;
 	border-radius: 5px;
-	width: 500px;
-	height: 300px;
+	width: 300px;
+	height: 400px;
 	list-style-type: none;
 	padding: 5px;
 	text-transform: capitalize;
@@ -103,16 +105,40 @@ hr {
 	display: block;
 }
 
+.overlay-user-info {
+	text-align: center;
+}
+
+.overlayAvatar {
+	border-radius: 50%;
+}
+
+
+
+
 /*Media query --------------------------------- */
 
 @media (min-width: 768px) {
 	.grid {
 		grid-template-columns: 50% 50%;
 	}
+	.card {
+		width: 80%;
+	}	
+	.modal-card {
+		width: 400px;
+		height: 500px; 
+	}
+	.overlay-user-info {
+		margin-top: 50px;
+	}
 }
 
 @media (min-width: 1024px) {
 	.grid {
 		grid-template-columns: repeat(3, 1fr);
+	}
+	.card {
+		width: 90%;
 	}
 }
