@@ -63,23 +63,24 @@
 				});
 			} // createListElement function end
 
-			//Search input function ------------------------------- >
+//Search input function ------------------------------- >
 
-			const inputSearchBar = document.getElementById('search');
+			const searchBar = document.getElementById('search');
+			const userCards = document.getElementsByClassName('card');
 
-			inputSearchBar.addEventListener('onkeyup', () => {
+			searchBar.addEventListener('keyup', () => {
+				let inputData = searchBar.value;
+				let filter = inputData.toUpperCase();
 				
-				const filter = inputSearchBar.value.toLowerCase();
-				const li = document.getElementsByClassName('card');
-				const a = li.getElementsByTagNamee('a');
-
-				// Loop through all list items, and hide those who don't match the search query
-				for (i = 0; i < li.length; i++) {
-					if (a.innerHTML.toLowerCase().indexOf(filter) > -1) {
-						li[i].style.display = "";
+				for (i = 0; i < userCards.length; i++) {
+					let a = userCards[i].firstElementChild.getElementsByTagName('a')[0];
+					let userName = a.innerHTML;
+					if (userName.toUpperCase().indexOf(filter) > -1) {
+						userCards[i].style.display = "";
 					} else {
-						li[i].style.display = "none";
+							userCards[i].style.display = "none";
 					}
 				}
-			});
+			});			
+
 
