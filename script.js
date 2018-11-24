@@ -26,9 +26,7 @@
 				<p class="userCity">${user.location.city}</p>
 			</div>
 			`;
-
 					ul.appendChild(userCard);
-
 
 					// Adding a click event to userCard
 
@@ -63,6 +61,9 @@
 				});
 			} // createListElement function end
 
+
+
+
 //Search input function ------------------------------- >
 
 			const searchBar = document.getElementById('search');
@@ -82,5 +83,8 @@
 					}
 				}
 			});			
+
+
+
 
 
