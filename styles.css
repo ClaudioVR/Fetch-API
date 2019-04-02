@@ -15,7 +15,7 @@ nav {
 
 h1 {
 	margin: 20px auto;
-	text-align: center;	
+	text-align: center;
 	text-transform: uppercase;
 	color: #333;
 /*	display: inline-block; */
@@ -38,12 +38,13 @@ hr {
 
 .grid {
 	padding: 0;
-	width: 100%;
+	margin: auto;
+	width: 100%%;
 	list-style-type: none;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-gap: 1em;
-	justify-items: center;
+	justify-content: center;
 }
 
 .card {
@@ -136,10 +137,10 @@ hr {
 	}
 	.card {
 		width: 80%;
-	}	
+	}
 	.modal-card {
 		width: 400px;
-		height: 500px; 
+		height: 500px;
 	}
 	.overlay-user-info {
 		margin-top: 50px;
@@ -163,7 +164,8 @@ hr {
 
 @media (min-width: 1024px) {
 	.grid {
-		grid-template-columns: repeat(3, 1fr);
+		/* grid-template-columns: repeat(3, 1fr); */
+		grid-template-columns: 20% 20% 20%;
 	}
 	.card {
 		width: 90%;
